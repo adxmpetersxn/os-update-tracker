@@ -1,0 +1,49 @@
+{
+  "calendar_name": "Mobile OS Release Tracker",
+  "reminder_days": [30, 7, 1],
+  "ics_lookback_days": 60,
+
+  "feeds": [
+    {
+      "name": "Apple Releases",
+      "url": "https://developer.apple.com/news/releases/rss/releases.rss",
+      "os": "iOS/iPadOS",
+      "os_pattern": "(?:iOS|iPadOS)(?:\\s*(?:&|and)\\s*iPadOS)?\\s*(\\d+(?:\\.\\d+)*)",
+      "bare_version_is_ga": true
+    },
+    {
+      "name": "Apple Developer News",
+      "url": "https://developer.apple.com/news/rss/news.rss",
+      "os": "iOS/iPadOS",
+      "os_pattern": "(?:iOS|iPadOS)(?:\\s*(?:&|and)\\s*iPadOS)?\\s*(\\d+(?:\\.\\d+)*)",
+      "bare_version_is_ga": false
+    },
+    {
+      "name": "Android Developers Blog",
+      "url": "https://android-developers.googleblog.com/feeds/posts/default",
+      "os": "Android",
+      "os_pattern": "Android\\s*(\\d+(?:\\.\\d+)?)",
+      "bare_version_is_ga": false
+    }
+  ],
+
+  "eol_products": [
+    { "os": "iOS/iPadOS", "product": "ios" },
+    { "os": "Android", "product": "android" }
+  ],
+
+  "deadline_pattern": "upcoming requirements|minimum (?:sdk|xcode)|target api level|api level requirement|must be built with",
+
+  "actions": {
+    "dev_preview": "Awareness: read the behavior-change docs and triage risks. Give your partner a heads-up.",
+    "beta": "Awareness: skim release notes for behavior changes. Confirm the partner is tracking it.",
+    "public_beta": "Start regression testing on test devices. Engage the partner developer.",
+    "platform_stability": "Key milestone: APIs are frozen. Begin full regression testing now (or confirm the partner has).",
+    "rc": "Final sign-off pass on release-candidate builds.",
+    "ga": "Monitor crash and analytics data by OS version for about a week. Confirm partner compatibility status.",
+    "deadline": "Requirement or deadline announcement: read it, then add the actual date to manual_events in config.json.",
+    "manual": "Hard date: confirm build and release work is scheduled."
+  },
+
+  "manual_events": []
+}
